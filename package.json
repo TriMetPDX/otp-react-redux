@@ -1,5 +1,6 @@
 {
   "name": "otp-react-redux",
+  "version": "0.1.0",
   "description": "A library for writing modern OpenTripPlanner-compatible multimodal journey planning web applications using React and Redux",
   "main": "build/index.js",
   "scripts": {
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/opentripplanner/otp-react-redux#readme",
   "dependencies": {
+    "transit-components": "github:OpenTransitTools/transit-components#fix_deploy_250-09_20_2019",
     "@conveyal/geocoder-arcgis-geojson": "^0.0.2",
     "@conveyal/lonlat": "^1.1.0",
     "@mapbox/polyline": "^0.2.0",
