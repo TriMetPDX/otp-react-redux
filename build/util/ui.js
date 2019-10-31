@@ -20,7 +20,6 @@ var _state = require("./state");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Set default title to the original document title (on load) set in index.html
 var DEFAULT_TITLE = document.title;
 
 function isMobile() {

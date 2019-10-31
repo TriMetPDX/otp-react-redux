@@ -81,45 +81,45 @@ STYLES.places = {
   stroke: '#fff',
   'stroke-width': 2,
   r: 7
-  /* function getIconSize (data) {
-    return isBikeshareStation(data.owner) ? 14 : 30
-  }
-  
-  STYLES.places_icon = {
-    display: function (display, data) {
-      if (!isBikeshareStation(data.owner)) return 'none'
-    },
-  
-    // center the icon by offsetting by half the width/height
-    x: function (display, data) {
-      return -getIconSize(data) / 2
-    },
-    y: function (display, data) {
-      return -getIconSize(data) / 2
-    },
-    width: function (display, data) {
-      return getIconSize(data)
-    },
-    height: function (display, data) {
-      return getIconSize(data)
-    },
-    'xlink:href': function (display, data) {
-      const place = data.owner
-      if (place.getId() === 'from') return `data:image/svg+xml;utf8,${fromSvg}`
-      if (place.getId() === 'to') return `data:image/svg+xml;utf8,${toSvg}`
-      if (isBikeshareStation(place)) return `data:image/svg+xml;utf8,${bikeSvg}`
-    },
-    stroke: 0
-  } */
-
-  /* STYLES.segments_halo = {
-    'stroke-width': function (display, data, index, utils) {
-      return data.computeLineWidth(display) + 7
-    },
-    opacity: 0.75
-  } */
-
 };
+/* function getIconSize (data) {
+  return isBikeshareStation(data.owner) ? 14 : 30
+}
+
+STYLES.places_icon = {
+  display: function (display, data) {
+    if (!isBikeshareStation(data.owner)) return 'none'
+  },
+
+  // center the icon by offsetting by half the width/height
+  x: function (display, data) {
+    return -getIconSize(data) / 2
+  },
+  y: function (display, data) {
+    return -getIconSize(data) / 2
+  },
+  width: function (display, data) {
+    return getIconSize(data)
+  },
+  height: function (display, data) {
+    return getIconSize(data)
+  },
+  'xlink:href': function (display, data) {
+    const place = data.owner
+    if (place.getId() === 'from') return `data:image/svg+xml;utf8,${fromSvg}`
+    if (place.getId() === 'to') return `data:image/svg+xml;utf8,${toSvg}`
+    if (isBikeshareStation(place)) return `data:image/svg+xml;utf8,${bikeSvg}`
+  },
+  stroke: 0
+} */
+
+/* STYLES.segments_halo = {
+  'stroke-width': function (display, data, index, utils) {
+    return data.computeLineWidth(display) + 7
+  },
+  opacity: 0.75
+} */
+
 STYLES.stops_merged = {
   r: function r(display, data, index, utils) {
     return 6;

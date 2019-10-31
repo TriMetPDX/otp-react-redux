@@ -84,6 +84,7 @@ function (_MapLayer) {
 
   _createClass(TransitiveCanvasOverlay, [{
     key: "componentDidMount",
+    // React Lifecycle Methods
     value: function componentDidMount() {
       var map = this.props.leaflet.map;
 
@@ -194,8 +195,7 @@ function (_MapLayer) {
 
 
 _defineProperty(TransitiveCanvasOverlay, "propTypes", {
-  transitiveData: _propTypes.default.object // React Lifecycle Methods
-
+  transitiveData: _propTypes.default.object
 });
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {

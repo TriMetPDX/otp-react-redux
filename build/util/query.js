@@ -51,7 +51,6 @@ var _time = require("./time");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* The list of default parameters considered in the settings panel */
 var defaultParams = ['wheelchair', 'maxWalkDistance', 'maxWalkTime', 'walkSpeed', 'maxBikeDistance', 'maxBikeTime', 'bikeSpeed', 'optimize', 'optimizeBike', 'maxEScooterDistance', 'watts'];
 /* A function to retrieve a property value from an entry in the query-params
  * table, checking for either a static value or a function */

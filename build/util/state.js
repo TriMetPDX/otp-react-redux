@@ -105,18 +105,17 @@ function getRealtimeEffects(otpState) {
     routesDiffer: !(0, _lodash.default)(normalRoutes, realtimeRoutes),
     normalDuration: normalDuration,
     realtimeDuration: realtimeDuration,
-    exceedsThreshold: Math.abs(normalDuration - realtimeDuration) >= otpState.config.realtimeEffectsDisplayThreshold // // TESTING: Return this instead to simulate a realtime-affected itinerary.
-    // return {
-    //   isAffectedByRealtimeData: true,
-    //   normalRoutes: ['10', '2', '10'],
-    //   realtimeRoutes: ['1', '2'],
-    //   routesDiffer: true,
-    //   normalDuration: 1000,
-    //   realtimeDuration: 800,
-    //   exceedsThreshold: true
-    // }
-
-  };
+    exceedsThreshold: Math.abs(normalDuration - realtimeDuration) >= otpState.config.realtimeEffectsDisplayThreshold
+  }; // // TESTING: Return this instead to simulate a realtime-affected itinerary.
+  // return {
+  //   isAffectedByRealtimeData: true,
+  //   normalRoutes: ['10', '2', '10'],
+  //   realtimeRoutes: ['1', '2'],
+  //   routesDiffer: true,
+  //   normalDuration: 1000,
+  //   realtimeDuration: 800,
+  //   exceedsThreshold: true
+  // }
 }
 /**
  * Determine whether user settings panel is enabled.

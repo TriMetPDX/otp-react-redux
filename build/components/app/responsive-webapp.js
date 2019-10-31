@@ -55,7 +55,9 @@ var _state = require("../../util/state");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -94,6 +96,8 @@ function (_Component) {
 
   _createClass(ResponsiveWebapp, [{
     key: "componentDidUpdate",
+
+    /** Lifecycle methods **/
     value: function componentDidUpdate(prevProps) {
       var _this$props = this.props,
           currentPosition = _this$props.currentPosition,
@@ -123,9 +127,8 @@ function (_Component) {
         if (currentPosition.error || !currentPosition.coords) return;
         var pt = {
           lat: currentPosition.coords.latitude,
-          lon: currentPosition.coords.longitude // if in mobile mode and from field is not set, use current location as from and recenter map
-
-        };
+          lon: currentPosition.coords.longitude
+        }; // if in mobile mode and from field is not set, use current location as from and recenter map
 
         if ((0, _ui2.isMobile)() && this.props.query.from === null) {
           this.props.setLocationToCurrent({
@@ -230,8 +233,6 @@ _defineProperty(ResponsiveWebapp, "propTypes", {
   initZoomOnLocate: _propTypes.default.number,
   mobileView: _propTypes.default.element,
   query: _propTypes.default.object
-  /** Lifecycle methods **/
-
 });
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {

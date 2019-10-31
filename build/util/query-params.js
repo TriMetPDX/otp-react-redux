@@ -29,46 +29,6 @@ var _time = require("./time");
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-/**
- * name: the default name of the parameter used for internal reference and API calls
- *
- * routingTypes: array of routing type(s) (ITINERARY, PROFILE, or both) this param applies to
- *
- * applicable: an optional function (accepting the current full query as a
- *   parameter) indicating whether this query parameter is applicable to the query.
- *   (Applicability is assumed if this function is not provided.)
- *
- * default: the default value for this parameter. The default can be also be a
- *  function that gets executed when accessing the default value. When the value
- *  is a funciton, it will take an argument of the current config of the otp-rr
- *  store. This is needed when a brand new time-dependent value is desired to be
- *  calculated. It's also helpful for producing tests that have consistent data
- *  output.
- *
- * itineraryRewrite: an optional function for translating the key and/or value
- *   for ITINERARY mode only (e.g. 'to' is rewritten as 'toPlace'). Accepts the
- *   intial internal value as a function parameter.
- *
- * profileRewrite: an optional function for translating the value for PROFILE mode
- *
- * label: a text label for for onscreen display. May either be a text string or a
- *   function (accepting the current full query as a parameter) returning a string
- *
- * selector: the default type of UI selector to use in the form. Can be one of:
- *   - DROPDOWN: a standard drop-down menu selector
- *
- * options: an array of text/value pairs used with a dropdown selector
- *
- * TODO: validation system for rewrite functions and/or better user documentation
- * TODO: alphabetize below list
- */
-// FIXME: Use for parsing URL values?
-// const stringToLocation = string => {
-//   const split = string.split(',')
-//   return split.length === 2
-//     ? {lat: split[0], lon: split[1]}
-//     : {lat: null, lon: null}
-// }
 var formatPlace = function formatPlace(location, alternateName) {
   if (!location) return null;
   var name = location.name || "".concat(alternateName || 'Place', " (").concat(location.lat, ",").concat(location.lon, ")");

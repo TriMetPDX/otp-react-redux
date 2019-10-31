@@ -11,6 +11,10 @@ exports.setViewedStop = setViewedStop;
 exports.setViewedRoute = setViewedRoute;
 exports.MobileScreens = exports.MainPanelContent = exports.toggleAutoRefresh = exports.setViewedTrip = exports.clearPanel = exports.setMobileScreen = void 0;
 
+require("core-js/modules/es6.regexp.to-string");
+
+require("core-js/modules/es6.object.to-string");
+
 require("core-js/modules/es7.symbol.async-iterator");
 
 require("core-js/modules/es6.symbol");
@@ -43,17 +47,10 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-/**
- * Wrapper function for history#push that preserves the current search or, if
- * replaceSearch is provided (including an empty string), replaces the search
- * when routing to a new URL path.
- * @param  {[type]} url           path to route to
- * @param  {string} replaceSearch optional search string to replace current one
- */
 function routeTo(url, replaceSearch) {
   return function (dispatch, getState) {
     // Get search to preserve when routing to new path.

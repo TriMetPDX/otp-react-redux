@@ -13,6 +13,8 @@ exports.matchLatLon = matchLatLon;
 exports.itineraryToTransitive = itineraryToTransitive;
 exports.isBikeshareStation = isBikeshareStation;
 
+require("core-js/modules/es6.regexp.to-string");
+
 require("core-js/modules/es7.symbol.async-iterator");
 
 require("core-js/modules/es6.symbol");
@@ -37,7 +39,7 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -115,9 +117,9 @@ function itineraryToTransitive(itin, includeGeometry) {
   var journey = {
     journey_id: 'itin',
     journey_name: 'Iterarary-derived Journey',
-    segments: [] // add 'from' and 'to' places to the tdata places array
+    segments: []
+  }; // add 'from' and 'to' places to the tdata places array
 
-  };
   tdata.places.push({
     place_id: 'from',
     place_lat: itin.legs[0].from.lat,
@@ -142,9 +144,9 @@ function itineraryToTransitive(itin, includeGeometry) {
         to: {
           type: 'PLACE',
           place_id: toPlaceId
-        } // For TNC segments, draw using an arc
+        }
+      }; // For TNC segments, draw using an arc
 
-      };
       if (leg.mode === 'CAR' && leg.hailedCar) segment.arc = true;
       journey.segments.push(segment);
       tdata.streetEdges.push({
@@ -179,9 +181,9 @@ function itineraryToTransitive(itin, includeGeometry) {
         pattern_id: ptnId,
         pattern_name: 'Pattern ' + patternId,
         route_id: leg.routeId,
-        stops: [] // add 'from' stop to stops dictionary and pattern object
+        stops: []
+      }; // add 'from' stop to stops dictionary and pattern object
 
-      };
       stops[leg.from.stopId] = {
         stop_id: leg.from.stopId,
         stop_name: leg.from.name,
@@ -246,9 +248,9 @@ function itineraryToTransitive(itin, includeGeometry) {
         route_short_name: leg.routeShortName || '',
         route_long_name: leg.routeLongName || '',
         route_type: leg.routeType,
-        route_color: leg.routeColor // add the pattern to the tdata patterns array
+        route_color: leg.routeColor
+      }; // add the pattern to the tdata patterns array
 
-      };
       tdata.patterns.push(pattern); // add the pattern refrerence to the journey object
 
       journey.segments.push({

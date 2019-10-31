@@ -39,9 +39,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* A small circular marker showing the user's current position. Intended
- * primarily for use in mobile mode.
- */
 var CurrentPositionMarker =
 /*#__PURE__*/
 function (_MapLayer) {
@@ -55,6 +52,7 @@ function (_MapLayer) {
 
   _createClass(CurrentPositionMarker, [{
     key: "componentWillUnmount",
+    // TODO: determine why the default MapLayer componentWillUnmount() method throws an error
     value: function componentWillUnmount() {}
   }, {
     key: "componentDidMount",
@@ -86,8 +84,7 @@ function (_MapLayer) {
 
 
 _defineProperty(CurrentPositionMarker, "propTypes", {
-  currentPosition: _propTypes.default.object // TODO: determine why the default MapLayer componentWillUnmount() method throws an error
-
+  currentPosition: _propTypes.default.object
 });
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {

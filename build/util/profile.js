@@ -54,9 +54,8 @@ function optionToItinerary(option, query) {
     duration: option.time,
     legs: [],
     walkTime: 0,
-    waitingTime: 0 // access leg
-
-  };
+    waitingTime: 0
+  }; // access leg
 
   if (option.access && option.access.length > 0) {
     if (option.access[0].mode === 'BICYCLE_RENT') {
